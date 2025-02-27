@@ -1,0 +1,27 @@
+{
+  "name": "backend-zero",
+  "version": "1.0.0",
+  "description": "hoi dan IT fullstack backend zero",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nhibui32/NodeJS-tutorial.git"
+  },
+  "keywords": [
+    "nodejs",
+    "react"
+  ],
+  "author": "hoi dan it",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nhibui32/NodeJS-tutorial/issues"
+  },
+  "homepage": "https://github.com/nhibui32/NodeJS-tutorial#readme",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
