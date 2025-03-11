@@ -9,8 +9,11 @@ const hostname = process.env.HOST_NAME;
 //config template engine 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs')
-// khai báo route
 
+//config static files 
+app.use(express.static(path.join(__dirname,'public')));
+
+// khai báo route
 app.get('/', function (req, res) {
   res.send('Hello World')
 })
@@ -18,12 +21,12 @@ app.get('/', function (req, res) {
 // su dung template engine voi nodejs 
 app.get('/abc', function (req, res) {
     // res.send('check ABC')
-    console.log('Accessing /abc route');
+    console.log('Accessing /abc route Anh Nhi');
     res.render('sample.ejs')
   })
 
 app.get('/hoidanit', function (req, res) {
-    res.send('<h1>check ABC</h1>')
+    res.send('<h1>check AB</h1>')
   })
 
 app.listen(port, ()=>{
