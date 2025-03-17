@@ -1,33 +1,17 @@
+require('dotenv').config();
 const express = require('express');
 const path = require('path');
-require('dotenv').config();
-console.log(">>> check env: ", process.env );
+const configViewEngine = require('./config/viewEngine');
 const app = express() // app express
 const port = process.env.PORT // port => hardcode  . uat . prod 
 const hostname = process.env.HOST_NAME;
+const webRoutes = require('./routes/web')
 
-//config template engine 
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs')
+// config  template engine
+configViewEngine(app)
 
-//config static files 
-app.use(express.static(path.join(__dirname,'public')));
-
-// khai báo route
-app.get('/', function (req, res) {
-  res.send('Hello World')
-})
-
-// su dung template engine voi nodejs 
-app.get('/abc', function (req, res) {
-    // res.send('check ABC')
-    console.log('Accessing /abc route Anh Nhi');
-    res.render('sample.ejs')
-  })
-
-app.get('/hoidanit', function (req, res) {
-    res.send('<h1>check AB</h1>')
-  })
+// khai bao route 
+app.use('/', webRoutes);
 
 app.listen(port, ()=>{
     console.log(`Example app listening on port ${port}`)
